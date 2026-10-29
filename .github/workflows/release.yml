@@ -15,6 +15,6 @@ jobs:
   release:
     uses: Project-N-E-K-O/N.E.K.O/.github/workflows/plugin-market-release.yml@main
     with:
-      plugin-id: dsh_bridge
+      plugin-id: dsh_harness_bridge
       neko-repository: Project-N-E-K-O/N.E.K.O
       neko-ref: main

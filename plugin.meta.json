@@ -453,7 +453,7 @@
   },
   "schema_version": 4,
   "sdk_version": "0.1.0",
-  "source_bytes": 93125,
+  "source_bytes": 93141,
   "source_files": [
     ".github/workflows/release.yml",
     ".github/workflows/verify.yml",
@@ -472,5 +472,5 @@
     "sidecar_client.py",
     "tests/test_smoke.py"
   ],
-  "source_sha256": "ace3b1b1037add50b9afa98f02f26fde8240cfb029674eac3f948409b64dad91"
+  "source_sha256": "3760f3a04077822fe49c91f5ab5ed54a77114b9fda27c923d932a3f62ad98946"
 }
