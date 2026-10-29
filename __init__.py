@@ -144,7 +144,6 @@ class DshBridgePlugin(NekoPluginBase):
         plugins' names or registrations still queued.
         """
         import httpx
-
         from config import MAIN_SERVER_PORT
 
         try:
@@ -468,7 +467,6 @@ class DshBridgePlugin(NekoPluginBase):
         plugin could be deleted. Failures are logged, never raised — stopping must finish.
         """
         import httpx
-
         from config import MAIN_SERVER_PORT
 
         try:
