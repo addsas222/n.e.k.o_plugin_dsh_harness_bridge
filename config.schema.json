@@ -81,7 +81,7 @@
         }
       }
     },
-    "dsh_bridge": {
+    "dsh_harness_bridge": {
       "type": "object",
       "title": "DSH Bridge",
       "description": "Where to find DeepSeek Harness packages and how to expose their tools.",

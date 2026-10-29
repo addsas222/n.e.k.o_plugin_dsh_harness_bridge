@@ -7,19 +7,19 @@ Run DeepSeek Harness (DSH) plugin engines in a Node sidecar and expose their too
 The plugin source and its Git repository live at:
 
 ```text
-N.E.K.O/plugin/plugins/dsh_bridge
+N.E.K.O/plugin/plugins/dsh_harness_bridge
 ```
 
 插件源码及其 Git 仓库直接位于：
 
 ```text
-N.E.K.O/plugin/plugins/dsh_bridge
+N.E.K.O/plugin/plugins/dsh_harness_bridge
 ```
 
 プラグインのソースと Git リポジトリは次の場所にあります：
 
 ```text
-N.E.K.O/plugin/plugins/dsh_bridge
+N.E.K.O/plugin/plugins/dsh_harness_bridge
 ```
 
 When publishing to the plugin market, use this GitHub repository name:
@@ -29,7 +29,7 @@ When publishing to the plugin market, use this GitHub repository name:
 プラグインマーケットへ公開する際は、次の GitHub リポジトリ名を使用してください：
 
 ```text
-n.e.k.o_plugin_dsh_bridge
+n.e.k.o_plugin_dsh_harness_bridge
 ```
 
 From this plugin repository root:
@@ -41,9 +41,9 @@ uvx ruff==0.12.4 check --ignore-noqa --config ruff.toml .
 From the N.E.K.O repository root / 在 N.E.K.O 仓库根目录中 / N.E.K.O リポジトリのルートで：
 
 ```bash
-uv run neko-plugin sync dsh_bridge --clean
-uv run neko-plugin check dsh_bridge
-uv run neko-plugin check -r dsh_bridge
+uv run neko-plugin sync dsh_harness_bridge --clean
+uv run neko-plugin check dsh_harness_bridge
+uv run neko-plugin check -r dsh_harness_bridge
 ```
 
 Python runtime dependencies are declared in `pyproject.toml` and synced into
@@ -69,18 +69,18 @@ Release，然后通知插件市场。
 push し、標準 GitHub Release を待ってからプラグインマーケットへ通知します。
 
 ```bash
-uv run neko-plugin publish dsh_bridge
+uv run neko-plugin publish dsh_harness_bridge
 ```
 
 To run only one half explicitly / 如需仅执行一部分 / 一方のみを実行する場合:
 
 ```bash
-uv run neko-plugin publish github dsh_bridge
+uv run neko-plugin publish github dsh_harness_bridge
 uv run neko-plugin publish market https://github.com/owner/repo/releases/tag/v0.1.0
 ```
 
 The generated `.github/workflows/release.yml` builds and uploads
-`dsh_bridge.neko-plugin`. The market independently verifies that Release
+`dsh_harness_bridge.neko-plugin`. The market independently verifies that Release
 before publishing it.
 
 生成的 `.github/workflows/release.yml` 会构建并上传插件包；Market 会独立验证
@@ -92,5 +92,5 @@ before publishing it.
 ## Entry
 
 ```toml
-entry = "plugin.plugins.dsh_bridge:DshBridgePlugin"
+entry = "plugin.plugins.dsh_harness_bridge:DshBridgePlugin"
 ```

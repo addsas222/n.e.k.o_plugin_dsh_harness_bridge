@@ -4,8 +4,8 @@ description = "Run DeepSeek Harness (DSH) plugin engines in a Node sidecar and e
 short_description = "Use DeepSeek Harness plugin tools in NEKO."
 keywords = ["dsh", "deepseek", "harness", "bridge", "compatibility", "tools"]
 version = "0.1.0"
-id = "dsh_bridge"
-entry = "plugin.plugins.dsh_bridge:DshBridgePlugin"
+id = "dsh_harness_bridge"
+entry = "plugin.plugins.dsh_harness_bridge:DshBridgePlugin"
 
 [plugin.author]
 name = "NEKO Community"
@@ -18,7 +18,7 @@ supported = ">=0.1.0,<0.3.0"
 enabled = true
 auto_start = false
 
-[dsh_bridge]
+[dsh_harness_bridge]
 dsh_home = ""
 packages = "fairy-roleplay/dsh-fairy-roleplay,fairy-memory/dsh-fairy-memory,fairy-eval/dsh-fairy-eval"
 node_path = ""

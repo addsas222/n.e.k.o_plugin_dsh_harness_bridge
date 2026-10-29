@@ -1,4 +1,4 @@
 [project]
-name = "dsh_bridge"
+name = "dsh_harness_bridge"
 version = "0.1.0"
 dependencies = []

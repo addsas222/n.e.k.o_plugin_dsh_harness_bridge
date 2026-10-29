@@ -8,7 +8,7 @@
     {
       "auto_start": false,
       "description": "Call a loaded DSH tool by its DSH name with a JSON object of arguments (for testing).",
-      "event_key": "dsh_bridge.call_tool",
+      "event_key": "dsh_harness_bridge.call_tool",
       "event_type": "plugin_entry",
       "id": "call_tool",
       "input_schema": {
@@ -37,7 +37,7 @@
     {
       "auto_start": false,
       "description": "Render the system-prompt sections the loaded DSH engines contribute (NEKO does not inject them).",
-      "event_key": "dsh_bridge.prompt_sections",
+      "event_key": "dsh_harness_bridge.prompt_sections",
       "event_type": "plugin_entry",
       "id": "prompt_sections",
       "input_schema": {
@@ -66,7 +66,7 @@
     {
       "auto_start": false,
       "description": "Restart the sidecar and reload the configured DSH packages.",
-      "event_key": "dsh_bridge.reload",
+      "event_key": "dsh_harness_bridge.reload",
       "event_type": "plugin_entry",
       "id": "reload",
       "input_schema": {
@@ -84,7 +84,7 @@
     {
       "auto_start": false,
       "description": "Per-package DSH compatibility report: loaded tools, missing ctx services, degraded features.",
-      "event_key": "dsh_bridge.status",
+      "event_key": "dsh_harness_bridge.status",
       "event_type": "plugin_entry",
       "id": "status",
       "input_schema": {
@@ -122,7 +122,7 @@
     "status": "status"
   },
   "handlers": {
-    "dsh_bridge.call_tool": {
+    "dsh_harness_bridge.call_tool": {
       "auto_start": false,
       "description": "Call a loaded DSH tool by its DSH name with a JSON object of arguments (for testing).",
       "dynamic": false,
@@ -159,7 +159,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge.prompt_sections": {
+    "dsh_harness_bridge.prompt_sections": {
       "auto_start": false,
       "description": "Render the system-prompt sections the loaded DSH engines contribute (NEKO does not inject them).",
       "dynamic": false,
@@ -195,7 +195,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge.reload": {
+    "dsh_harness_bridge.reload": {
       "auto_start": false,
       "description": "Restart the sidecar and reload the configured DSH packages.",
       "dynamic": false,
@@ -221,7 +221,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge.status": {
+    "dsh_harness_bridge.status": {
       "auto_start": false,
       "description": "Per-package DSH compatibility report: loaded tools, missing ctx services, degraded features.",
       "dynamic": false,
@@ -260,7 +260,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge:lifecycle:shutdown": {
+    "dsh_harness_bridge:lifecycle:shutdown": {
       "auto_start": false,
       "description": "",
       "dynamic": false,
@@ -286,7 +286,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge:lifecycle:startup": {
+    "dsh_harness_bridge:lifecycle:startup": {
       "auto_start": false,
       "description": "",
       "dynamic": false,
@@ -312,7 +312,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge:plugin_entry:call_tool": {
+    "dsh_harness_bridge:plugin_entry:call_tool": {
       "auto_start": false,
       "description": "Call a loaded DSH tool by its DSH name with a JSON object of arguments (for testing).",
       "dynamic": false,
@@ -349,7 +349,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge:plugin_entry:prompt_sections": {
+    "dsh_harness_bridge:plugin_entry:prompt_sections": {
       "auto_start": false,
       "description": "Render the system-prompt sections the loaded DSH engines contribute (NEKO does not inject them).",
       "dynamic": false,
@@ -385,7 +385,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge:plugin_entry:reload": {
+    "dsh_harness_bridge:plugin_entry:reload": {
       "auto_start": false,
       "description": "Restart the sidecar and reload the configured DSH packages.",
       "dynamic": false,
@@ -411,7 +411,7 @@
       },
       "timeout": null
     },
-    "dsh_bridge:plugin_entry:status": {
+    "dsh_harness_bridge:plugin_entry:status": {
       "auto_start": false,
       "description": "Per-package DSH compatibility report: loaded tools, missing ctx services, degraded features.",
       "dynamic": false,
@@ -453,7 +453,7 @@
   },
   "schema_version": 4,
   "sdk_version": "0.1.0",
-  "source_bytes": 90822,
+  "source_bytes": 93125,
   "source_files": [
     ".github/workflows/release.yml",
     ".github/workflows/verify.yml",
@@ -472,5 +472,5 @@
     "sidecar_client.py",
     "tests/test_smoke.py"
   ],
-  "source_sha256": "ad3d8b220ccbd0835a39171664d59452f26606a42c55635d09556abcffee2be4"
+  "source_sha256": "ace3b1b1037add50b9afa98f02f26fde8240cfb029674eac3f948409b64dad91"
 }

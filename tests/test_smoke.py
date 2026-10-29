@@ -6,5 +6,5 @@ def test_plugin_manifest_exists() -> None:
     manifest = root / "plugin.toml"
     assert manifest.is_file()
     text = manifest.read_text(encoding="utf-8")
-    assert 'id = "dsh_bridge"' in text
-    assert 'entry = "plugin.plugins.dsh_bridge:DshBridgePlugin"' in text
+    assert 'id = "dsh_harness_bridge"' in text
+    assert 'entry = "plugin.plugins.dsh_harness_bridge:DshBridgePlugin"' in text

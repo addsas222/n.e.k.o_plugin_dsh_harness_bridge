@@ -1,4 +1,4 @@
-# dsh_bridge 可变默认值示例。
+# dsh_harness_bridge 可变默认值示例。
 # 真正生效的配置写在 N.E.K.O. 的插件配置里；本文件只作示例与文档。
 # 这里列出的值与 config.schema.json 的 default 一致。
 
@@ -6,7 +6,7 @@
 enabled = true
 auto_start = false
 
-[dsh_bridge]
+[dsh_harness_bridge]
 # DeepSeek Harness 数据目录。留空则用 DSH_HOME 环境变量或 ~/.dsh。
 dsh_home = ""
 # 逗号分隔的包目录，相对 DSH 主目录或绝对路径；只加载带 ./engine 导出的包。

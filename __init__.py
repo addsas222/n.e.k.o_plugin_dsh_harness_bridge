@@ -157,7 +157,7 @@ class DshBridgePlugin(NekoPluginBase):
                 return set()
             body = resp.json()
         except Exception as exc:  # unreachable host must not block startup
-            self.logger.warning("dsh_bridge: cannot query /api/tools: {}", exc)
+            self.logger.warning("dsh_harness_bridge: cannot query /api/tools: {}", exc)
             return set()
         names: set[str] = set()
         by_role = body.get("tools_by_role") if isinstance(body, dict) else None
@@ -264,7 +264,7 @@ class DshBridgePlugin(NekoPluginBase):
     async def prompt_sections(self, **_):
         client = self._client
         if client is None or not client.running:
-            return Err(SdkError("dsh_bridge sidecar is not running"))
+            return Err(SdkError("dsh_harness_bridge sidecar is not running"))
         try:
             result = await client.request("sections", _SECTIONS_TIMEOUT_S)
         except SidecarError as exc:
@@ -277,7 +277,7 @@ class DshBridgePlugin(NekoPluginBase):
         except Exception as exc:
             self.logger.warning("Failed to load config, using defaults: {}", exc)
             cfg = {}
-        section = cfg.get("dsh_bridge") if isinstance(cfg, dict) else None
+        section = cfg.get("dsh_harness_bridge") if isinstance(cfg, dict) else None
         return section if isinstance(section, dict) else {}
 
     async def _start(self) -> None:
@@ -289,12 +289,12 @@ class DshBridgePlugin(NekoPluginBase):
         self._report, self._problem, self._unconfirmed = [], "", []
         self._meta_tools = set()
         if not packages:
-            self.logger.warning("dsh_bridge: no DSH packages configured; add them under [dsh_bridge] in the plugin config")
+            self.logger.warning("dsh_harness_bridge: no DSH packages configured; add them under [dsh_harness_bridge] in the plugin config")
 
         node = resolve_node(str(settings.get("node_path") or ""), dsh_home)
         if node is None:
             self._problem = (
-                "node not found: install Node.js, or set dsh_bridge.node_path to an existing "
+                "node not found: install Node.js, or set dsh_harness_bridge.node_path to an existing "
                 "node executable (a configured path is used only if the file exists)"
             )
             self.logger.warning(self._problem)
@@ -396,7 +396,7 @@ class DshBridgePlugin(NekoPluginBase):
     async def _instructions(self) -> str:
         client = self._client
         if client is None or not client.running:
-            raise SidecarError("SIDECAR_DOWN", "dsh_bridge sidecar is not running")
+            raise SidecarError("SIDECAR_DOWN", "dsh_harness_bridge sidecar is not running")
         result = await client.request("sections", _SECTIONS_TIMEOUT_S)
         sections = result.get("sections", []) if isinstance(result, dict) else []
         return render_instructions(sections, self._report)
@@ -433,7 +433,7 @@ class DshBridgePlugin(NekoPluginBase):
     async def _call(self, dsh_name: str, args: dict[str, Any]) -> Any:
         client = self._client
         if client is None or not client.running:
-            raise SidecarError("SIDECAR_DOWN", "dsh_bridge sidecar is not running; use the reload entry")
+            raise SidecarError("SIDECAR_DOWN", "dsh_harness_bridge sidecar is not running; use the reload entry")
         budget = chat_timeout(self._tool_timeout_ms(dsh_name))
         return await client.request("call", budget, tool=dsh_name, args=args)
 
@@ -480,7 +480,7 @@ class DshBridgePlugin(NekoPluginBase):
                     json={"name": llm_name, "role": None, "expected_source": f"plugin:{self.plugin_id}"},
                 )
         except Exception as exc:
-            self.logger.warning("dsh_bridge: remote unregister {} failed: {}", llm_name, exc)
+            self.logger.warning("dsh_harness_bridge: remote unregister {} failed: {}", llm_name, exc)
 
     def _summary(self) -> dict[str, Any]:
         return {

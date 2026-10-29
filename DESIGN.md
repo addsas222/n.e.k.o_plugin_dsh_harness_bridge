@@ -1,4 +1,4 @@
-# dsh_bridge 设计：在 N.E.K.O. 里运行 DeepSeek Harness 插件
+# dsh_harness_bridge 设计：在 N.E.K.O. 里运行 DeepSeek Harness 插件
 
 ## 目标
 

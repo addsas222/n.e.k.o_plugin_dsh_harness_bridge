@@ -2,36 +2,36 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "N.E.K.O: check dsh_bridge",
+      "label": "N.E.K.O: check dsh_harness_bridge",
       "type": "shell",
-      "command": "uv run neko-plugin check dsh_bridge",
+      "command": "uv run neko-plugin check dsh_harness_bridge",
       "options": {
         "cwd": "${config:nekoPlugin.repoRoot}"
       },
       "problemMatcher": []
     },
     {
-      "label": "N.E.K.O: sync dsh_bridge",
+      "label": "N.E.K.O: sync dsh_harness_bridge",
       "type": "shell",
-      "command": "uv run neko-plugin sync dsh_bridge --clean",
+      "command": "uv run neko-plugin sync dsh_harness_bridge --clean",
       "options": {
         "cwd": "${config:nekoPlugin.repoRoot}"
       },
       "problemMatcher": []
     },
     {
-      "label": "N.E.K.O: check -r dsh_bridge",
+      "label": "N.E.K.O: check -r dsh_harness_bridge",
       "type": "shell",
-      "command": "uv run neko-plugin check -r dsh_bridge",
+      "command": "uv run neko-plugin check -r dsh_harness_bridge",
       "options": {
         "cwd": "${config:nekoPlugin.repoRoot}"
       },
       "problemMatcher": []
     },
     {
-      "label": "N.E.K.O: build dsh_bridge",
+      "label": "N.E.K.O: build dsh_harness_bridge",
       "type": "shell",
-      "command": "uv run neko-plugin build dsh_bridge",
+      "command": "uv run neko-plugin build dsh_harness_bridge",
       "options": {
         "cwd": "${config:nekoPlugin.repoRoot}"
       },

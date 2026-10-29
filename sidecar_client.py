@@ -110,7 +110,7 @@ class _Connection:
 
     async def request(self, op: str, timeout: float, **fields: Any) -> Any:
         if not self.running or self._process is None or self._process.stdin is None:
-            raise SidecarError("SIDECAR_DOWN", "dsh_bridge sidecar is not running")
+            raise SidecarError("SIDECAR_DOWN", "dsh_harness_bridge sidecar is not running")
         request_id = next(self._ids)
         future: asyncio.Future[Any] = asyncio.get_running_loop().create_future()
         self._pending[request_id] = future
@@ -122,7 +122,7 @@ class _Connection:
         except asyncio.TimeoutError as exc:
             raise SidecarError("TIMEOUT", f"sidecar did not answer {op} within {timeout:.0f}s") from exc
         except (BrokenPipeError, ConnectionResetError) as exc:
-            raise SidecarError("SIDECAR_DOWN", "dsh_bridge sidecar exited") from exc
+            raise SidecarError("SIDECAR_DOWN", "dsh_harness_bridge sidecar exited") from exc
         finally:
             self._pending.pop(request_id, None)
 
@@ -139,7 +139,7 @@ class _Connection:
         for task in self._tasks:
             task.cancel()
         self._tasks = []
-        self._fail_pending("dsh_bridge sidecar stopped")
+        self._fail_pending("dsh_harness_bridge sidecar stopped")
 
     def _fail_pending(self, message: str) -> None:
         self._chunks.clear()
@@ -180,7 +180,7 @@ class _Connection:
                     future.set_exception(SidecarError(str(error.get("code", "TOOL_FAILED")), str(error.get("message", ""))))
         finally:
             self._reader_dead = True
-            self._fail_pending("dsh_bridge sidecar exited")
+            self._fail_pending("dsh_harness_bridge sidecar exited")
 
     def _accept_chunk(self, future: asyncio.Future[Any], frame_id: Any, chunk: dict[str, Any]) -> None:
         """Collect one frame of a split reply; the last index resolves the request.
@@ -260,7 +260,7 @@ class SidecarClient:
     async def request(self, op: str, timeout: float, **fields: Any) -> Any:
         connection = self._connection
         if connection is None or not connection.running:
-            raise SidecarError("SIDECAR_DOWN", "dsh_bridge sidecar is not running")
+            raise SidecarError("SIDECAR_DOWN", "dsh_harness_bridge sidecar is not running")
         try:
             return await self._submit(connection.request(op, timeout, **fields), timeout=timeout + _HOP_MARGIN_S)
         except asyncio.TimeoutError as exc:
@@ -274,7 +274,7 @@ class SidecarClient:
     async def _submit(self, coroutine: Any, *, timeout: float) -> Any:
         loop = self._ensure_worker()
         if not loop.is_running():
-            raise SidecarError("SIDECAR_DOWN", "dsh_bridge sidecar worker loop is not running")
+            raise SidecarError("SIDECAR_DOWN", "dsh_harness_bridge sidecar worker loop is not running")
         future = asyncio.run_coroutine_threadsafe(coroutine, loop)
         try:
             return await asyncio.wait_for(asyncio.wrap_future(future), timeout)

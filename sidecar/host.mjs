@@ -1,5 +1,5 @@
 /**
- * dsh_bridge sidecar: loads the agent half (`./engine`) of DeepSeek Harness
+ * dsh_harness_bridge sidecar: loads the agent half (`./engine`) of DeepSeek Harness
  * plugin packages into a shim ctx and serves their tools over JSON lines on
  * stdio. One request per line `{id, op, ...}`, one reply per line
  * `{id, ok, result | error}`. stdout carries protocol frames only; engine logs
@@ -250,7 +250,7 @@ function createShim(record) {
     get(target, property) {
       if (typeof property === 'symbol' || property in target) return target[property];
       if (property === 'then') return undefined;
-      throw coded(`dsh_bridge does not provide ctx.${String(property)}`, 'UNSUPPORTED_CTX', { property: String(property) });
+      throw coded(`dsh_harness_bridge does not provide ctx.${String(property)}`, 'UNSUPPORTED_CTX', { property: String(property) });
     },
   });
   return ctx;
@@ -358,7 +358,7 @@ async function runPreStep(record) {
     try {
       await handler({}, async () => {});
     } catch (error) {
-      console.warn(`[dsh_bridge] ${record.id} pre-step: ${error?.message || error}`);
+      console.warn(`[dsh_harness_bridge] ${record.id} pre-step: ${error?.message || error}`);
     }
   }
 }
