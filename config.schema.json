@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "plugin_runtime": {
+      "type": "object",
+      "title": "Runtime settings",
+      "description": "Plugin availability and automatic startup settings.",
+      "x-title-i18n": {
+        "zh-CN": "运行设置",
+        "zh-TW": "執行設定",
+        "en": "Runtime settings",
+        "ja": "実行設定",
+        "ko": "실행 설정",
+        "ru": "Настройки запуска",
+        "es": "Ajustes de ejecución",
+        "pt": "Configurações de execução"
+      },
+      "x-description-i18n": {
+        "zh-CN": "插件的启用与自动启动设置。",
+        "zh-TW": "外掛程式的啟用與自動啟動設定。",
+        "en": "Plugin availability and automatic startup settings.",
+        "ja": "プラグインの有効化と自動起動の設定。",
+        "ko": "플러그인 활성화 및 자동 시작 설정입니다.",
+        "ru": "Доступность плагина и его автоматический запуск.",
+        "es": "Disponibilidad del complemento e inicio automático.",
+        "pt": "Disponibilidade do plugin e inicialização automática."
+      },
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "title": "Enable plugin",
+          "description": "Allow this plugin to be loaded.",
+          "x-title-i18n": {
+            "zh-CN": "启用插件",
+            "zh-TW": "啟用外掛程式",
+            "en": "Enable plugin",
+            "ja": "プラグインを有効化",
+            "ko": "플러그인 활성화",
+            "ru": "Включить плагин",
+            "es": "Activar complemento",
+            "pt": "Ativar plugin"
+          },
+          "x-description-i18n": {
+            "zh-CN": "是否允许加载此插件。",
+            "zh-TW": "是否允許載入此外掛程式。",
+            "en": "Allow this plugin to be loaded.",
+            "ja": "このプラグインの読み込みを許可します。",
+            "ko": "이 플러그인을 로드할 수 있도록 합니다.",
+            "ru": "Разрешить загрузку этого плагина.",
+            "es": "Permitir que se cargue este complemento.",
+            "pt": "Permitir o carregamento deste plugin."
+          },
+          "default": true
+        },
+        "auto_start": {
+          "type": "boolean",
+          "title": "Start automatically",
+          "description": "Start this plugin when the plugin system starts.",
+          "x-title-i18n": {
+            "zh-CN": "自动启动",
+            "zh-TW": "自動啟動",
+            "en": "Start automatically",
+            "ja": "自動起動",
+            "ko": "자동 시작",
+            "ru": "Автоматический запуск",
+            "es": "Iniciar automáticamente",
+            "pt": "Iniciar automaticamente"
+          },
+          "x-description-i18n": {
+            "zh-CN": "插件系统启动时自动启动此插件。",
+            "zh-TW": "外掛程式系統啟動時自動啟動此外掛程式。",
+            "en": "Start this plugin when the plugin system starts.",
+            "ja": "プラグインシステムの起動時に自動起動します。",
+            "ko": "플러그인 시스템이 시작될 때 자동으로 시작합니다.",
+            "ru": "Запускать плагин при запуске системы плагинов.",
+            "es": "Iniciar este complemento al arrancar el sistema de complementos.",
+            "pt": "Iniciar este plugin quando o sistema de plugins iniciar."
+          },
+          "default": false
+        }
+      }
+    },
+    "dsh_bridge": {
+      "type": "object",
+      "title": "DSH Bridge",
+      "description": "Where to find DeepSeek Harness packages and how to expose their tools.",
+      "x-title-i18n": {
+        "zh-CN": "DSH 桥接",
+        "zh-TW": "DSH 橋接",
+        "en": "DSH Bridge",
+        "ja": "DSH Bridge",
+        "ko": "DSH Bridge",
+        "ru": "DSH Bridge",
+        "es": "DSH Bridge",
+        "pt": "DSH Bridge"
+      },
+      "x-description-i18n": {
+        "zh-CN": "DeepSeek Harness 插件包的位置，以及如何暴露它们的工具。",
+        "zh-TW": "DeepSeek Harness 外掛程式包的位置，以及如何公開它們的工具。",
+        "en": "Where to find DeepSeek Harness packages and how to expose their tools.",
+        "ja": "DeepSeek Harness パッケージの場所と、そのツールの公開方法。",
+        "ko": "DeepSeek Harness 패키지 위치와 도구 노출 방식입니다.",
+        "ru": "Где искать пакеты DeepSeek Harness и как открывать их инструменты.",
+        "es": "Dónde encontrar los paquetes de DeepSeek Harness y cómo exponer sus herramientas.",
+        "pt": "Onde encontrar os pacotes do DeepSeek Harness e como expor suas ferramentas."
+      },
+      "properties": {
+        "dsh_home": {
+          "type": "string",
+          "title": "DSH home",
+          "description": "DeepSeek Harness data directory. Empty uses the DSH_HOME environment variable or ~/.dsh.",
+          "x-title-i18n": {
+            "zh-CN": "DSH 主目录",
+            "zh-TW": "DSH 主目錄",
+            "en": "DSH home",
+            "ja": "DSH ホーム",
+            "ko": "DSH 홈",
+            "ru": "Каталог DSH",
+            "es": "Directorio de DSH",
+            "pt": "Diretório do DSH"
+          },
+          "x-description-i18n": {
+            "zh-CN": "DeepSeek Harness 的数据目录；留空时使用 DSH_HOME 环境变量或 ~/.dsh。",
+            "zh-TW": "DeepSeek Harness 的資料目錄；留空時使用 DSH_HOME 環境變數或 ~/.dsh。",
+            "en": "DeepSeek Harness data directory. Empty uses the DSH_HOME environment variable or ~/.dsh.",
+            "ja": "DeepSeek Harness のデータディレクトリ。空欄なら DSH_HOME 環境変数または ~/.dsh を使います。",
+            "ko": "DeepSeek Harness 데이터 디렉터리입니다. 비우면 DSH_HOME 환경 변수 또는 ~/.dsh를 사용합니다.",
+            "ru": "Каталог данных DeepSeek Harness. Если пусто, используется переменная DSH_HOME или ~/.dsh.",
+            "es": "Directorio de datos de DeepSeek Harness. Vacío usa la variable DSH_HOME o ~/.dsh.",
+            "pt": "Diretório de dados do DeepSeek Harness. Vazio usa a variável DSH_HOME ou ~/.dsh."
+          },
+          "default": ""
+        },
+        "packages": {
+          "type": "string",
+          "title": "DSH packages",
+          "description": "Comma-separated package directories, relative to the DSH home or absolute. Only packages exporting ./engine are loaded. Loaded code runs with this plugin's permissions — point only at packages you trust.",
+          "x-title-i18n": {
+            "zh-CN": "DSH 插件包",
+            "zh-TW": "DSH 外掛程式包",
+            "en": "DSH packages",
+            "ja": "DSH パッケージ",
+            "ko": "DSH 패키지",
+            "ru": "Пакеты DSH",
+            "es": "Paquetes DSH",
+            "pt": "Pacotes DSH"
+          },
+          "x-description-i18n": {
+            "zh-CN": "逗号分隔的包目录，相对 DSH 主目录或绝对路径；只加载带 ./engine 导出的包。被加载的代码以本插件权限运行，只应指向你信任的包。",
+            "zh-TW": "逗號分隔的套件目錄，相對 DSH 主目錄或絕對路徑；只載入帶 ./engine 匯出的套件。被載入的程式碼以此外掛程式權限執行，只應指向你信任的套件。",
+            "en": "Comma-separated package directories, relative to the DSH home or absolute. Only packages exporting ./engine are loaded. Loaded code runs with this plugin's permissions — point only at packages you trust.",
+            "ja": "カンマ区切りのパッケージディレクトリ（DSH ホームからの相対パスまたは絶対パス）。./engine をエクスポートするものだけを読み込みます。読み込まれたコードはこのプラグインの権限で実行されます。信頼できるパッケージだけを指定してください。",
+            "ko": "쉼표로 구분한 패키지 디렉터리(DSH 홈 기준 상대 경로 또는 절대 경로)입니다. ./engine을 내보내는 패키지만 로드합니다. 로드된 코드는 이 플러그인의 권한으로 실행됩니다. 신뢰하는 패키지만 지정하세요.",
+            "ru": "Каталоги пакетов через запятую, относительно каталога DSH или абсолютные. Загружаются только пакеты с экспортом ./engine. Загруженный код выполняется с правами этого плагина — указывайте только доверенные пакеты.",
+            "es": "Directorios de paquetes separados por comas, relativos al directorio de DSH o absolutos. Solo se cargan los que exportan ./engine. El código cargado se ejecuta con los permisos de este complemento: apunta solo a paquetes de confianza.",
+            "pt": "Diretórios de pacotes separados por vírgula, relativos ao diretório do DSH ou absolutos. Só são carregados os que exportam ./engine. O código carregado é executado com as permissões deste plugin — aponte apenas para pacotes confiáveis."
+          },
+          "default": "fairy-roleplay/dsh-fairy-roleplay,fairy-memory/dsh-fairy-memory,fairy-eval/dsh-fairy-eval"
+        },
+        "node_path": {
+          "type": "string",
+          "title": "Node path",
+          "description": "Node executable. Empty searches PATH, then the node bundled with DeepSeek Harness.",
+          "x-title-i18n": {
+            "zh-CN": "Node 路径",
+            "zh-TW": "Node 路徑",
+            "en": "Node path",
+            "ja": "Node のパス",
+            "ko": "Node 경로",
+            "ru": "Путь к Node",
+            "es": "Ruta de Node",
+            "pt": "Caminho do Node"
+          },
+          "x-description-i18n": {
+            "zh-CN": "node 可执行文件；留空时先找 PATH，再找 DeepSeek Harness 自带的 node。",
+            "zh-TW": "node 可執行檔；留空時先找 PATH，再找 DeepSeek Harness 內附的 node。",
+            "en": "Node executable. Empty searches PATH, then the node bundled with DeepSeek Harness.",
+            "ja": "node 実行ファイル。空欄なら PATH、次に DeepSeek Harness 同梱の node を探します。",
+            "ko": "node 실행 파일입니다. 비우면 PATH에서 찾고, 그다음 DeepSeek Harness에 포함된 node를 찾습니다.",
+            "ru": "Исполняемый файл node. Если пусто, ищется в PATH, затем node из комплекта DeepSeek Harness.",
+            "es": "Ejecutable de node. Vacío busca en PATH y luego el node incluido con DeepSeek Harness.",
+            "pt": "Executável do node. Vazio procura no PATH e depois o node incluído no DeepSeek Harness."
+          },
+          "default": ""
+        },
+        "tool_prefix": {
+          "type": "string",
+          "title": "Tool name prefix",
+          "description": "Prefix for tool names registered to chat, to avoid clashes with other plugins.",
+          "x-title-i18n": {
+            "zh-CN": "工具名前缀",
+            "zh-TW": "工具名稱前綴",
+            "en": "Tool name prefix",
+            "ja": "ツール名の接頭辞",
+            "ko": "도구 이름 접두사",
+            "ru": "Префикс имён инструментов",
+            "es": "Prefijo de nombre de herramienta",
+            "pt": "Prefixo do nome da ferramenta"
+          },
+          "x-description-i18n": {
+            "zh-CN": "注册到对话的工具名前缀，避免与其他插件重名。",
+            "zh-TW": "註冊到對話的工具名稱前綴，避免與其他外掛程式重名。",
+            "en": "Prefix for tool names registered to chat, to avoid clashes with other plugins.",
+            "ja": "会話に登録するツール名の接頭辞。他のプラグインとの名前の衝突を避けます。",
+            "ko": "대화에 등록할 도구 이름 접두사로, 다른 플러그인과의 이름 충돌을 피합니다.",
+            "ru": "Префикс имён инструментов в чате, чтобы избежать совпадений с другими плагинами.",
+            "es": "Prefijo de los nombres de herramientas registradas en el chat, para evitar choques con otros complementos.",
+            "pt": "Prefixo dos nomes das ferramentas registradas no chat, para evitar conflitos com outros plugins."
+          },
+          "default": "dsh_"
+        },
+        "inject_to_chat": {
+          "type": "boolean",
+          "title": "Inject into chat",
+          "description": "Register loaded DSH tools as tools the chat model can call.",
+          "x-title-i18n": {
+            "zh-CN": "注入对话",
+            "zh-TW": "注入對話",
+            "en": "Inject into chat",
+            "ja": "会話に注入",
+            "ko": "대화에 주입",
+            "ru": "Добавлять в чат",
+            "es": "Inyectar en el chat",
+            "pt": "Injetar no chat"
+          },
+          "x-description-i18n": {
+            "zh-CN": "把已加载的 DSH 工具注册为对话中可调用的工具。",
+            "zh-TW": "把已載入的 DSH 工具註冊為對話中可呼叫的工具。",
+            "en": "Register loaded DSH tools as tools the chat model can call.",
+            "ja": "読み込んだ DSH ツールを会話モデルが呼び出せるツールとして登録します。",
+            "ko": "로드한 DSH 도구를 대화 모델이 호출할 수 있는 도구로 등록합니다.",
+            "ru": "Регистрировать загруженные инструменты DSH как инструменты, доступные модели чата.",
+            "es": "Registrar las herramientas DSH cargadas como herramientas que el modelo del chat puede llamar.",
+            "pt": "Registrar as ferramentas DSH carregadas como ferramentas que o modelo do chat pode chamar."
+          },
+          "default": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+# dsh_bridge 可变默认值示例。
+# 真正生效的配置写在 N.E.K.O. 的插件配置里；本文件只作示例与文档。
+# 这里列出的值与 config.schema.json 的 default 一致。
+
+[plugin_runtime]
+enabled = true
+auto_start = false
+
+[dsh_bridge]
+# DeepSeek Harness 数据目录。留空则用 DSH_HOME 环境变量或 ~/.dsh。
+dsh_home = ""
+# 逗号分隔的包目录，相对 DSH 主目录或绝对路径；只加载带 ./engine 导出的包。
+# 被加载的包代码以本插件的权限运行，只应指向你信任的 DSH 安装。
+packages = "fairy-roleplay/dsh-fairy-roleplay,fairy-memory/dsh-fairy-memory,fairy-eval/dsh-fairy-eval"
+# node 可执行文件。留空则先找 PATH，再找 DeepSeek Harness 自带的 node。
+node_path = ""
+# 注册到对话的工具名前缀，避免与其他插件重名。
+tool_prefix = "dsh_"
+# 把已加载的 DSH 工具注册为对话中可调用的工具。
+inject_to_chat = true

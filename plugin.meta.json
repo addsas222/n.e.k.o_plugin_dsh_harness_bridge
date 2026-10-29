@@ -1,0 +1,476 @@
+{
+  "build_env": {
+    "arch": "AMD64",
+    "os": "win32",
+    "python": "3.11"
+  },
+  "entries": [
+    {
+      "auto_start": false,
+      "description": "Call a loaded DSH tool by its DSH name with a JSON object of arguments (for testing).",
+      "event_key": "dsh_bridge.call_tool",
+      "event_type": "plugin_entry",
+      "id": "call_tool",
+      "input_schema": {
+        "properties": {
+          "arguments": {
+            "default": "{}",
+            "type": "string"
+          },
+          "tool": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tool"
+        ],
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_schema": {},
+      "metadata": {},
+      "model_validate": true,
+      "name": "Call DSH tool",
+      "return_message": "",
+      "timeout": null
+    },
+    {
+      "auto_start": false,
+      "description": "Render the system-prompt sections the loaded DSH engines contribute (NEKO does not inject them).",
+      "event_key": "dsh_bridge.prompt_sections",
+      "event_type": "plugin_entry",
+      "id": "prompt_sections",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": [
+        "sections"
+      ],
+      "llm_result_schema": {
+        "properties": {
+          "sections": {}
+        },
+        "required": [
+          "sections"
+        ],
+        "type": "object"
+      },
+      "metadata": {},
+      "model_validate": true,
+      "name": "Prompt sections",
+      "return_message": "",
+      "timeout": null
+    },
+    {
+      "auto_start": false,
+      "description": "Restart the sidecar and reload the configured DSH packages.",
+      "event_key": "dsh_bridge.reload",
+      "event_type": "plugin_entry",
+      "id": "reload",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_schema": {},
+      "metadata": {},
+      "model_validate": true,
+      "name": "Reload",
+      "return_message": "",
+      "timeout": null
+    },
+    {
+      "auto_start": false,
+      "description": "Per-package DSH compatibility report: loaded tools, missing ctx services, degraded features.",
+      "event_key": "dsh_bridge.status",
+      "event_type": "plugin_entry",
+      "id": "status",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": [
+        "running",
+        "packages"
+      ],
+      "llm_result_schema": {
+        "properties": {
+          "packages": {},
+          "running": {}
+        },
+        "required": [
+          "running",
+          "packages"
+        ],
+        "type": "object"
+      },
+      "metadata": {},
+      "model_validate": true,
+      "name": "Compatibility report",
+      "return_message": "",
+      "timeout": null
+    }
+  ],
+  "entries_config_sha256": "",
+  "entry_methods": {
+    "call_tool": "call_tool",
+    "prompt_sections": "prompt_sections",
+    "reload": "reload",
+    "status": "status"
+  },
+  "handlers": {
+    "dsh_bridge.call_tool": {
+      "auto_start": false,
+      "description": "Call a loaded DSH tool by its DSH name with a JSON object of arguments (for testing).",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "plugin_entry",
+      "extra": {},
+      "id": "call_tool",
+      "input_schema": {
+        "properties": {
+          "arguments": {
+            "default": "{}",
+            "type": "string"
+          },
+          "tool": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tool"
+        ],
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": null,
+      "llm_result_schema": null,
+      "metadata": {},
+      "model_validate": true,
+      "name": "Call DSH tool",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge.prompt_sections": {
+      "auto_start": false,
+      "description": "Render the system-prompt sections the loaded DSH engines contribute (NEKO does not inject them).",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "plugin_entry",
+      "extra": {},
+      "id": "prompt_sections",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": [
+        "sections"
+      ],
+      "llm_result_schema": {
+        "properties": {
+          "sections": {}
+        },
+        "required": [
+          "sections"
+        ],
+        "type": "object"
+      },
+      "metadata": {},
+      "model_validate": true,
+      "name": "Prompt sections",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge.reload": {
+      "auto_start": false,
+      "description": "Restart the sidecar and reload the configured DSH packages.",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "plugin_entry",
+      "extra": {},
+      "id": "reload",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": null,
+      "llm_result_schema": null,
+      "metadata": {},
+      "model_validate": true,
+      "name": "Reload",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge.status": {
+      "auto_start": false,
+      "description": "Per-package DSH compatibility report: loaded tools, missing ctx services, degraded features.",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "plugin_entry",
+      "extra": {},
+      "id": "status",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": [
+        "running",
+        "packages"
+      ],
+      "llm_result_schema": {
+        "properties": {
+          "packages": {},
+          "running": {}
+        },
+        "required": [
+          "running",
+          "packages"
+        ],
+        "type": "object"
+      },
+      "metadata": {},
+      "model_validate": true,
+      "name": "Compatibility report",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge:lifecycle:shutdown": {
+      "auto_start": false,
+      "description": "",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "lifecycle",
+      "extra": {},
+      "id": "shutdown",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "lifecycle",
+      "llm_result_fields": null,
+      "llm_result_schema": null,
+      "metadata": {},
+      "model_validate": true,
+      "name": "shutdown",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge:lifecycle:startup": {
+      "auto_start": false,
+      "description": "",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "lifecycle",
+      "extra": {},
+      "id": "startup",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "lifecycle",
+      "llm_result_fields": null,
+      "llm_result_schema": null,
+      "metadata": {},
+      "model_validate": true,
+      "name": "startup",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge:plugin_entry:call_tool": {
+      "auto_start": false,
+      "description": "Call a loaded DSH tool by its DSH name with a JSON object of arguments (for testing).",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "plugin_entry",
+      "extra": {},
+      "id": "call_tool",
+      "input_schema": {
+        "properties": {
+          "arguments": {
+            "default": "{}",
+            "type": "string"
+          },
+          "tool": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tool"
+        ],
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": null,
+      "llm_result_schema": null,
+      "metadata": {},
+      "model_validate": true,
+      "name": "Call DSH tool",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge:plugin_entry:prompt_sections": {
+      "auto_start": false,
+      "description": "Render the system-prompt sections the loaded DSH engines contribute (NEKO does not inject them).",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "plugin_entry",
+      "extra": {},
+      "id": "prompt_sections",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": [
+        "sections"
+      ],
+      "llm_result_schema": {
+        "properties": {
+          "sections": {}
+        },
+        "required": [
+          "sections"
+        ],
+        "type": "object"
+      },
+      "metadata": {},
+      "model_validate": true,
+      "name": "Prompt sections",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge:plugin_entry:reload": {
+      "auto_start": false,
+      "description": "Restart the sidecar and reload the configured DSH packages.",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "plugin_entry",
+      "extra": {},
+      "id": "reload",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": null,
+      "llm_result_schema": null,
+      "metadata": {},
+      "model_validate": true,
+      "name": "Reload",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    },
+    "dsh_bridge:plugin_entry:status": {
+      "auto_start": false,
+      "description": "Per-package DSH compatibility report: loaded tools, missing ctx services, degraded features.",
+      "dynamic": false,
+      "enabled": true,
+      "event_type": "plugin_entry",
+      "extra": {},
+      "id": "status",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "kind": "action",
+      "llm_result_fields": [
+        "running",
+        "packages"
+      ],
+      "llm_result_schema": {
+        "properties": {
+          "packages": {},
+          "running": {}
+        },
+        "required": [
+          "running",
+          "packages"
+        ],
+        "type": "object"
+      },
+      "metadata": {},
+      "model_validate": true,
+      "name": "Compatibility report",
+      "persist": null,
+      "quick_action": false,
+      "quick_action_config": {
+        "icon": null,
+        "priority": 0
+      },
+      "timeout": null
+    }
+  },
+  "schema_version": 4,
+  "sdk_version": "0.1.0",
+  "source_bytes": 90824,
+  "source_files": [
+    ".github/workflows/release.yml",
+    ".github/workflows/verify.yml",
+    ".gitignore",
+    ".vscode/settings.json",
+    ".vscode/tasks.json",
+    "DESIGN.md",
+    "README.md",
+    "__init__.py",
+    "config.example.toml",
+    "config.schema.json",
+    "plugin.toml",
+    "pyproject.toml",
+    "ruff.toml",
+    "sidecar/host.mjs",
+    "sidecar_client.py",
+    "tests/test_smoke.py"
+  ],
+  "source_sha256": "b8a096e24691e1694681994e8aa79fe87c5c62344849c4f244473d0cc3230395"
+}

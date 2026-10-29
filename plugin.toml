@@ -1,0 +1,26 @@
+[plugin]
+name = "DSH Bridge"
+description = "Run DeepSeek Harness (DSH) plugin engines in a Node sidecar and expose their tools to NEKO chat. Packages that need DSH-only services are reported as incompatible."
+short_description = "Use DeepSeek Harness plugin tools in NEKO."
+keywords = ["dsh", "deepseek", "harness", "bridge", "compatibility", "tools"]
+version = "0.1.0"
+id = "dsh_bridge"
+entry = "plugin.plugins.dsh_bridge:DshBridgePlugin"
+
+[plugin.author]
+name = "NEKO Community"
+
+[plugin.sdk]
+recommended = ">=0.1.0,<0.2.0"
+supported = ">=0.1.0,<0.3.0"
+
+[plugin_runtime]
+enabled = true
+auto_start = false
+
+[dsh_bridge]
+dsh_home = ""
+packages = "fairy-roleplay/dsh-fairy-roleplay,fairy-memory/dsh-fairy-memory,fairy-eval/dsh-fairy-eval"
+node_path = ""
+tool_prefix = "dsh_"
+inject_to_chat = true
